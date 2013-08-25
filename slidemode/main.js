@@ -122,8 +122,15 @@ IPython = (function(IPython) {
                  {label:'Next Slide', icon:'icon-forward', callback:function(){that.next_group()}},
                                 ])
         ptoolbar.add_buttons_group([
-                 {label:'Next', icon:'icon-play', callback:function(){that.next()}}
-                 ])
+            {label:'Next', icon:'icon-play', callback:function(){that.next()}},
+
+            {label:'Execute and Next', icon:'icon-forward',
+             callback:function() {
+                 IPython.notebook.execute_selected_cell();
+                 that.next();
+             }
+            },
+        ])
 
         bind_remote('#toolbar_present')
 
